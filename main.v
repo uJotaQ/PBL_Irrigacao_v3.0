@@ -1,7 +1,7 @@
-module main(A, M, B, AL, VE, US, UA, T, GT, AS, SL, A7, B7, C7, D7, E7, F7, G7, DG1, DG2, DG3, BUZZ);
+module main(A, M, B, AL, VE, US, UA, T, GT, AS, SL, A7, B7, C7, D7, E7, F7, G7);
 
 	input A, M, B, US, UA, T, SL;
-	output AL, VE, GT, AS, A7, B7, C7, D7, E7, F7, G7, DG1, DG2, DG3, BUZZ;
+	output AL, VE, GT, AS, A7, B7, C7, D7, E7, F7, G7;
 	
 	
 	wire A1, B1, C1, D1, E1, F1, G1;
@@ -15,9 +15,8 @@ module main(A, M, B, AL, VE, US, UA, T, GT, AS, SL, A7, B7, C7, D7, E7, F7, G7, 
 	Valvula(AL, A, B, VE);
 	Gotejamento(US, UA, T, M, AL, GT);
 	Aspersao(AS, GT, US);
-	or (BUZZ, AL, 0);
 	
-	exibir_matriz_nivel(A, M, B, AL, A1, B1, C1, D1, E1, F1, G1);
+	exibir_matriz_nivel(A, M, B, A1, B1, C1, D1, E1, F1, G1);
 	exibir_matriz_rega(AS, US, GT, A2, B2, C2, D2, E2, F2, G2);
 	
 	multiplex(SL, A1, A2, A7);
