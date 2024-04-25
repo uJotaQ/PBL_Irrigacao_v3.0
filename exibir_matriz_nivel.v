@@ -1,11 +1,10 @@
-module exibir_matriz_nivel(A, M, B, alarm, a7, b7, c7, d7, e7, f7, g7);
-	input A, M, B, alarm;
+module exibir_matriz_nivel(A, M, B, a7, b7, c7, d7, e7, f7, g7);
+	input A, M, B;
 	output a7, b7, c7, d7, e7, f7, g7;
 	
 	not not0(not_a, A);
 	not not1(not_m, M);
 	not not2(not_b, B);
-	not not3(not_alarm, alarm);
 	
 	// LED (A)
 	and and0(aux0, not_a, not_m);
@@ -13,10 +12,10 @@ module exibir_matriz_nivel(A, M, B, alarm, a7, b7, c7, d7, e7, f7, g7);
 	or Or0(a7, aux0, aux1);
 
 	// LED (B)
-	not (b7, 1'b0);
+	not (b7, b7);
 	
 	// LED (C)
-	not (c7, 1'b0);
+	not (c7, c7);
 	
 	// LED (D)
 	and And2(d7, not_a, not_b, not_m);
